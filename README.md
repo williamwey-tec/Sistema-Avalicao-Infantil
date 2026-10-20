@@ -1,86 +1,84 @@
 # AvaliaInfantil
 
-Sistema web para apoio ao registro, acompanhamento e consolidação de avaliações diagnósticas da Educação Infantil.
+Protótipo front-end para demonstrar telas e interações de um sistema de apoio à avaliação diagnóstica na Educação Infantil.
 
-## Sobre o projeto
+## Estado atual
 
-O **AvaliaInfantil** é um protótipo de aplicação web desenvolvido com o objetivo de digitalizar o processo de preenchimento, acompanhamento e consulta das avaliações diagnósticas realizadas na Educação Infantil.
+A versão existente é uma aplicação estática executada no navegador. Ela usa dados fictícios mantidos em JavaScript e não possui backend, banco de dados, autenticação real ou geração real de PDF.
 
-A aplicação permite que diferentes perfis de usuários acessem funcionalidades específicas, como o preenchimento de avaliações por professores, o acompanhamento de turmas pela coordenação e direção, além da organização de alunos, turmas e modelos avaliativos.
+As interações disponíveis continuam sendo simulações de interface, incluindo:
 
-O projeto foi desenvolvido como parte das atividades acadêmicas da disciplina de **Engenharia de Software III**, com foco na aplicação prática de conceitos de levantamento de requisitos, prototipação, organização de funcionalidades e desenvolvimento front-end.
+- seleção de perfil e entrada no protótipo;
+- navegação entre painel, turmas, avaliação, alunos, resultados e modelos;
+- seleção de aluno e respostas da avaliação;
+- cadastro simulado de aluno;
+- mensagens de confirmação para ações simuladas.
 
-## Objetivo
+## Tecnologias existentes
 
-O objetivo do sistema é facilitar o registro digital das avaliações diagnósticas infantis, reduzindo o uso de documentos manuais e permitindo maior organização das informações pedagógicas.
+- HTML5;
+- CSS3;
+- JavaScript sem frameworks ou dependências externas.
 
-A proposta busca apoiar escolas, professores, coordenadores e diretores no acompanhamento do desempenho dos alunos, oferecendo uma interface simples para preenchimento das avaliações e visualização dos resultados consolidados.
-
-## Funcionalidades
-
-- Tela de login com seleção de perfil de usuário;
-- Painel inicial com indicadores gerais;
-- Consulta de turmas vinculadas ao usuário;
-- Registro de avaliações diagnósticas dos alunos;
-- Opções de avaliação por item:
-  - **A** — Atingido;
-  - **EP** — Em Processo;
-  - **NA** — Não Atingido;
-- Visualização de resultados consolidados;
-- Listagem e cadastro de alunos;
-- Geração simulada de relatórios em PDF;
-- Salvamento simulado de rascunhos;
-- Finalização simulada de avaliações;
-- Cadastro e visualização de modelos avaliativos;
-- Interface adaptada conforme o perfil do usuário.
-
-## Perfis de acesso
-
-A aplicação considera três tipos principais de usuários:
-
-### Professor
-
-O professor acessa suas turmas, consulta seus alunos e realiza o preenchimento das avaliações diagnósticas.
-
-### Coordenador
-
-O coordenador acompanha as avaliações, visualiza dados consolidados, gerencia alunos e acessa os modelos de avaliação.
-
-### Diretor
-
-O diretor acompanha os resultados gerais, consulta informações das turmas e visualiza os dados consolidados da instituição.
-
-## Tecnologias utilizadas
-
-O projeto foi desenvolvido utilizando tecnologias básicas de front-end:
-
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-
-Não há, nesta versão, integração com banco de dados ou back-end. Os dados utilizados na aplicação são simulados diretamente no arquivo JavaScript.
-
-## Estrutura do projeto
+## Estrutura real
 
 ```text
-Front/
-├── index.html
-├── style.css
-└── script.js
+Sistema-Avalicao-Infantil/
+├── app/                          # Estrutura documental das camadas futuras
+│   ├── Controllers/             # Entrada HTTP (a implementar)
+│   ├── Services/                # Casos de uso e regras (a implementar)
+│   ├── Repositories/            # Persistência (a implementar)
+│   ├── Models/                  # Objetos de domínio opcionais (a implementar)
+│   └── Views/                   # Templates PHP futuros
+│       ├── layouts/
+│       ├── turmas/
+│       ├── modelos/
+│       ├── avaliacoes/
+│       └── resultados/
+├── bootstrap/                    # Inicialização futura, documentada
+├── config/                       # Configuração futura, documentada
+├── database/                     # Modelagem e scripts futuros, documentados
+├── public/                       # Camada de apresentação executada no navegador
+│   ├── index.html                # Estrutura das telas do protótipo
+│   └── assets/
+│       ├── css/
+│       │   └── style.css         # Identidade visual, layout e componentes
+│       └── js/
+│           ├── mock-data.js      # Dados fictícios usados pela demonstração
+│           ├── renderers.js      # Montagem das listas, tabelas e alertas
+│           ├── evaluation.js     # Interações do preenchimento da avaliação
+│           ├── session.js        # Perfil, entrada, saída e navegação
+│           └── ui.js             # Modal, cadastro simulado e notificações
+├── tests/                        # Testes futuros, documentados
+├── Planejamento_MVP_AvaliaInfantil_Arquitetura_Camadas.md
+└── README.md
 ```
 
-### Descrição dos arquivos
+Apenas `public/` contém código executável. As demais pastas possuem somente arquivos `README.md` que documentam responsabilidades e limites para uma implementação futura; não há componentes de backend, banco ou testes implementados.
 
-- `index.html`: estrutura principal da aplicação;
-- `style.css`: estilos visuais, layout, cores, cards, tabelas e responsividade;
-- `script.js`: lógica de navegação, dados simulados, controle de perfis, modais e interações da aplicação.
+## Como executar
 
-## Status do projeto
+A forma mais simples é abrir `public/index.html` em um navegador moderno.
 
-Este projeto encontra-se em fase de **protótipo front-end**.
+Opcionalmente, a pasta `public/` pode ser servida por qualquer servidor HTTP estático. Por exemplo, em um ambiente que já tenha Python instalado:
 
-A versão atual tem como foco a apresentação visual e funcional da aplicação, utilizando dados simulados para representar o comportamento esperado do sistema.
+```bash
+cd public
+python -m http.server 8000
+```
 
-## Contexto acadêmico
+Depois, acesse `http://localhost:8000`.
 
-Este projeto foi desenvolvido como parte de uma proposta de sistema para avaliação diagnóstica infantil, aplicando conceitos de Engenharia de Software, prototipação de interfaces e organização de requisitos funcionais.
+Não é necessário configurar XAMPP, PHP ou MySQL para executar a versão atual.
+
+## Relação com o planejamento arquitetural
+
+O arquivo `Planejamento_MVP_AvaliaInfantil_Arquitetura_Camadas.md` registra uma arquitetura futura em camadas para a evolução do MVP. No estado atual, somente a camada de apresentação está implementada; as demais camadas possuem apenas documentação de preparação.
+
+Quando houver implementação funcional aprovada, o projeto poderá incorporar gradualmente as camadas de aplicação/controle, negócio/serviços e persistência descritas no planejamento. Essa evolução futura poderá incluir PHP, MySQL e configuração de uma raiz pública adequada, mas nenhum desses elementos faz parte do código atual.
+
+## Observações
+
+- Todos os nomes e dados exibidos são fictícios.
+- Login, salvamento, finalização, relatórios e cadastros são apenas demonstrações visuais.
+- O protótipo não deve ser usado com dados reais de crianças.
